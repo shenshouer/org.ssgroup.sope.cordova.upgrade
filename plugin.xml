@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="org.ssgroup.sope.cordova.Upgrade"
+    version="0.6.1">
+    <name>Upgrade</name>
+    <description>从app store中检查程序版本并提示升级更新</description>
+    <license>MIT</license>
+    <keywords>cordova,app store, upgrade</keywords>
+
+    <engines>
+        <engine name="cordova" version=">=3.5.0" />
+    </engines>
+      <!-- js module-->
+    <js-module src="www/upgrade.js" name="Upgrade">
+        <clobbers target="somai.upgrade" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <!--preference name="appInfoUrl" value="http://itunes.apple.com/cn/lookup?id=284910350"/--> 
+            <!--preference name="appUpgradeUrl" value="http://itunes.apple.com/cn/lookup?id=284910350"/-->
+
+            <feature name="Upgrade">
+                <param name="ios-package" value="CDVUpgrade"/>
+                <param name="onload" value="true" />
+            </feature>   
+        </config-file>
+
+        <!-- Plugin source code -->
+        <header-file src="src/ios/CDVUpgrade.h" />
+        <source-file src="src/ios/CDVUpgrade.m" compiler-flags="-fno-objc-arc"/>
+
+        <header-file src="src/ios/libs/TouchJSON/CDataScanner.h" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/libs/TouchJSON/CDataScanner.m" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/libs/TouchJSON/Experimental/CFilteringJSONSerializer.h" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/libs/TouchJSON/Experimental/CFilteringJSONSerializer.m" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/libs/TouchJSON/Experimental/CJSONDeserializer_BlocksExtensions.h" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/libs/TouchJSON/Experimental/CJSONDeserializer_BlocksExtensions.m" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/libs/TouchJSON/Experimental/CJSONSerialization.h" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/libs/TouchJSON/Experimental/CJSONSerialization.m" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/libs/TouchJSON/Experimental/CJSONSerializedData.h" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/libs/TouchJSON/Experimental/CJSONSerializedData.m" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/libs/TouchJSON/Extensions/CDataScanner_Extensions.h" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/libs/TouchJSON/Extensions/CDataScanner_Extensions.m" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/libs/TouchJSON/Extensions/NSCharacterSet_Extensions.h" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/libs/TouchJSON/Extensions/NSCharacterSet_Extensions.m" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/libs/TouchJSON/Extensions/NSDictionary_JSONExtensions.h" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/libs/TouchJSON/Extensions/NSDictionary_JSONExtensions.m" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/libs/TouchJSON/Extensions/NSScanner_Extensions.h" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/libs/TouchJSON/Extensions/NSScanner_Extensions.m" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/libs/TouchJSON/JSON/CJSONDataSerializer.h" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/libs/TouchJSON/JSON/CJSONDataSerializer.m" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/libs/TouchJSON/JSON/CJSONDeserializer.h" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/libs/TouchJSON/JSON/CJSONDeserializer.m" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/libs/TouchJSON/JSON/CJSONScanner.h" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/libs/TouchJSON/JSON/CJSONScanner.m" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/libs/TouchJSON/JSON/CJSONSerializer.h" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/libs/TouchJSON/JSON/CJSONSerializer.m" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/libs/TouchJSON/JSON/CSerializedJSONData.h" compiler-flags="-fno-objc-arc"/>
+        <source-file src="src/ios/libs/TouchJSON/JSON/CSerializedJSONData.m" compiler-flags="-fno-objc-arc"/>
+        <header-file src="src/ios/libs/TouchJSON/JSON/JSONRepresentation.h" compiler-flags="-fno-objc-arc"/>
+
+    </platform>
+
+    <!-- android -->
+</plugin>
